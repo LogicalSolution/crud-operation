@@ -1,0 +1,20 @@
+input.ng-touched.ng-invalid{
+    border-color: red;
+}
+
+.btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+label{
+    font-weight: bold;
+}
+
+span{
+    color: red;
+}
+
+.empRecord{
+   background-color: white;
+}

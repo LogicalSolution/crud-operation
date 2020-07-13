@@ -1,0 +1,55 @@
+<section class="bg-light">
+    <div class="container mt-3">
+        <h1 class="text-center text-danger">Add Employees</h1>
+          <form [formGroup]="addForm" (ngSubmit)="employeesAdd()">
+             <div class="row d-flex align-items-stretch" style="margin-top:30px;">
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="form-group">
+                        <label for="name">Employee Name<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="name" placeholder="Employee name" class="form-control">
+                        <span *ngIf="!addForm.get('name').valid && addForm.get('name').touched">Please enter name*</span>
+                    </div>
+                 </div>
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                     <div class="form-group">
+                         <label for="profile">Profile<span class="text-danger">*</span></label>
+                         <input type="text" formControlName="profile" placeholder="Profile" class="form-control">
+                         <span *ngIf="!addForm.get('profile').valid && addForm.get('profile').touched">Please enter profile*</span>
+                     </div>
+                 </div>
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                     <div class="form-group">
+                         <label for="contact">Contact Number<span class="text-danger">*</span></label>
+                         <input type="tel" formControlName="contact" placeholder="Contact number" minlength="10" maxlength="10" class="form-control">
+                         <span *ngIf="!addForm.get('contact').valid && addForm.get('contact').touched"> Please enter contact number*</span>
+                     </div> 
+                 </div>
+             </div>
+             <div class="row d-flex align-items-stretch mt-3">
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                     <div class="form-group">
+                         <label for="email">Email Address<span class="text-danger">*</span></label>
+                         <input type="email" formControlName="email" placeholder="Email address" class="form-control" required>
+                         <span *ngIf="!addForm.get('email').valid && addForm.get('email').touched">Please enter email address*</span>
+                     </div>
+                 </div>
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="form-group">
+                        <label for="salary">Salary<span class="text-danger">*</span></label>
+                        <input type="number" formControlName="salary" placeholder="Salary" class="form-control">
+                        <span *ngIf="!addForm.get('salary').valid && addForm.get('salary').touched">Please enter salary*</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="form-group">
+                        <label for="file">Upload Photo<span class="text-danger">*</span></label>
+                        <input type="file" formControlName="file" placeholder="Upload photo" class="form-control" id="file" (change)="onFileChange($event)">
+                        <span *ngIf="!addForm.get('file').valid && addForm.get('file').touched">Please upload photo*</span>
+                    </div>
+                    <img [src]="imageScr" *ngIf="imageScr" style="width:150px; height:150px;">
+                </div>
+             </div>
+             <button class="btn btn-success btn-lg mt-2" [disabled]="!addForm.valid" type="submit">Add Employee</button>
+        </form>
+    </div>
+</section>
